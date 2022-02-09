@@ -35,7 +35,7 @@ void	ft_putstr_non_printable(char *str)
 	cnt = 0;
 	while (str[cnt])
 	{
-		if ((str[cnt] >= 0 && str[cnt] <= 31) || str[cnt] >= 127)
+		if ((str[cnt] >= 0 && str[cnt] <= 31) || str[cnt] == 127)
 			hexa(str[cnt]);
 		else
 			write(1, &str[cnt], 1);
