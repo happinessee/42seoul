@@ -6,7 +6,7 @@
 /*   By: hyojeong <hyojeong@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 09:03:34 by hyojeong          #+#    #+#             */
-/*   Updated: 2022/02/08 13:03:54 by hyojeong         ###   ########.fr       */
+/*   Updated: 2022/02/09 11:41:23 by hyojeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,14 @@
 
 void	hexa(char word)
 {
-	char	word1;
-	char	word2;
+	char	buf[3];
+	char	*hex;
 
-	word1 = (word / 16) + '0';
-	word2 = word % 16;
-	if (word2 >= 10)
-		word2 = (word2 % 10) + 'a';
-	else
-		word2 = word2 + '0';
-	write(1, "\\", 1);
-	write(1, &word1, 1);
-	write(1, &word2, 1);
+	hex = "0123456789abcdef";
+	buf[0] = '\\';
+	buf[1] = hex[word / 16];
+	buf[2] = hex[word % 16];
+	write(1, buf, 3);
 }
 
 void	ft_putstr_non_printable(char *str)
@@ -35,10 +31,10 @@ void	ft_putstr_non_printable(char *str)
 	cnt = 0;
 	while (str[cnt])
 	{
-		if ((str[cnt] >= 0 && str[cnt] <= 31) || str[cnt] >= 127)
-			hexa(str[cnt]);
-		else
+		if (str[cnt] >= 32 && str[cnt] <= 126)
 			write(1, &str[cnt], 1);
+		else
+			hexa(str[cnt]);
 		cnt++;
 	}
 }
