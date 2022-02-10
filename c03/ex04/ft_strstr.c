@@ -6,31 +6,33 @@
 /*   By: hyojeong <hyojeong@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 20:33:42 by hyojeong          #+#    #+#             */
-/*   Updated: 2022/02/10 09:09:02 by hyojeong         ###   ########.fr       */
+/*   Updated: 2022/02/10 10:00:08 by hyojeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strstr(char *str, char *to_find)
+char	*ft_strstr(char *str, char *find)
 {
 	int		cnt;
-	int		find_cnt;
+	int		fcnt;
 	int		len_to_find;
 
 	len_to_find = 0;
-	find_cnt = 0;
+	fcnt = 0;
 	cnt = 0;
-	if (to_find[0] == '\0')
+	if (find[0] == '\0')
 		return (str);
-	while (to_find[len_to_find])
+	while (find[len_to_find])
 		len_to_find++;
 	while (str[cnt])
 	{
-		if (str[cnt + find_cnt] == to_find[find_cnt])
-			find_cnt++;
-		else
-			cnt++;
-		if (len_to_find == find_cnt)
+		fcnt = 0;
+		while (find[fcnt] && str[cnt + fcnt] && str[cnt + fcnt] == find[fcnt])
+		{
+			fcnt++;
+		}
+		if (len_to_find == fcnt)
 			return (&str[cnt]);
+		cnt++;
 	}
 	return (0);
 }
