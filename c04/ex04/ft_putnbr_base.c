@@ -56,6 +56,8 @@ void	ft_putnbr_base(int nbr, char *base)
 		write(1, "-", 1);
 		nb *= -1;
 	}
+	if (nb == 0)
+		room[index++] = base[nb % len_base];
 	while (nb > 0)
 	{
 		room[index++] = base[nb % len_base];

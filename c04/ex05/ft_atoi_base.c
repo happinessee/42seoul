@@ -42,6 +42,8 @@ int	check_base(char *base)
 	int		cnt2;
 
 	cnt = 0;
+	if (base[0] == '\0' || base[1] == '\0')
+		return (1);
 	while (base[cnt])
 	{
 		if (base[cnt] == '-' || base[cnt] == '+')
@@ -55,10 +57,7 @@ int	check_base(char *base)
 		}
 		cnt++;
 	}
-	if (cnt == 0 || cnt == 1)
-		return (1);
-	else
-		return (0);
+	return (0);
 }
 
 int	change_str_int(char str, char *base)
@@ -97,7 +96,9 @@ int	ft_atoi_base(char *str, char *base)
 		return (0);
 	while (base[base_len])
 		base_len++;
-	while ((str[cnt] == '+' || str[cnt] == '-' || is_space(str[cnt])))
+	while (str[cnt] && is_space(str[cnt]))
+		cnt++;
+	while (str[cnt] == '+' || str[cnt] == '-')
 	{
 		if (str[cnt] == '-')
 			cnt_minus *= -1;
