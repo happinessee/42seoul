@@ -96,9 +96,7 @@ int	ft_atoi_base(char *str, char *base)
 		return (0);
 	while (base[base_len])
 		base_len++;
-	while (str[cnt] && is_space(str[cnt]))
-		cnt++;
-	while (str[cnt] == '+' || str[cnt] == '-')
+	while (str[cnt] == '+' || str[cnt] == '-' || is_space(str[cnt]))
 	{
 		if (str[cnt] == '-')
 			cnt_minus *= -1;
