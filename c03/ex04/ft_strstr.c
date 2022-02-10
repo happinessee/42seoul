@@ -6,7 +6,7 @@
 /*   By: hyojeong <hyojeong@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 20:33:42 by hyojeong          #+#    #+#             */
-/*   Updated: 2022/02/09 21:52:01 by hyojeong         ###   ########.fr       */
+/*   Updated: 2022/02/10 09:09:02 by hyojeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ char	*ft_strstr(char *str, char *to_find)
 	cnt = 0;
 	if (to_find[0] == '\0')
 		return (str);
-	while (find_cnt[len_to_find])
+	while (to_find[len_to_find])
 		len_to_find++;
-	while(str[cnt])
+	while (str[cnt])
 	{
 		if (str[cnt + find_cnt] == to_find[find_cnt])
 			find_cnt++;
