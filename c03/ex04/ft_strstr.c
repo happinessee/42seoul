@@ -1,31 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hyojeong <hyojeong@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/08 08:51:29 by hyojeong          #+#    #+#             */
-/*   Updated: 2022/02/09 11:18:51 by hyojeong         ###   ########.fr       */
+/*   Created: 2022/02/09 20:33:42 by hyojeong          #+#    #+#             */
+/*   Updated: 2022/02/10 09:09:02 by hyojeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
+char	*ft_strstr(char *str, char *to_find)
 {
-	unsigned int	cnt;
-	int				len_src;
+	int		cnt;
+	int		find_cnt;
+	int		len_to_find;
 
+	len_to_find = 0;
+	find_cnt = 0;
 	cnt = 0;
-	len_src = 0;
-	while (src[len_src])
-		len_src++;
-	if (size == 0)
-		return (len_src);
-	while (src[cnt] && cnt < size - 1)
+	if (to_find[0] == '\0')
+		return (str);
+	while (to_find[len_to_find])
+		len_to_find++;
+	while (str[cnt])
 	{
-		dest[cnt] = src[cnt];
-		cnt++;
+		if (str[cnt + find_cnt] == to_find[find_cnt])
+			find_cnt++;
+		else
+			cnt++;
+		if (len_to_find == find_cnt)
+			return (&str[cnt]);
 	}
-	dest[cnt] = '\0';
-	return (len_src);
+	return (0);
 }

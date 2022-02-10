@@ -1,31 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_strncat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hyojeong <hyojeong@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/08 08:51:29 by hyojeong          #+#    #+#             */
-/*   Updated: 2022/02/09 11:18:51 by hyojeong         ###   ########.fr       */
+/*   Created: 2022/02/09 19:42:16 by hyojeong          #+#    #+#             */
+/*   Updated: 2022/02/10 09:06:32 by hyojeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
+char	*ft_strncat(char *dest, char *src, unsigned int nb)
 {
 	unsigned int	cnt;
-	int				len_src;
+	int				len_dest;
 
+	len_dest = 0;
 	cnt = 0;
-	len_src = 0;
-	while (src[len_src])
-		len_src++;
-	if (size == 0)
-		return (len_src);
-	while (src[cnt] && cnt < size - 1)
+	while (dest[len_dest])
+		len_dest++;
+	while (src[cnt] && cnt < nb)
 	{
-		dest[cnt] = src[cnt];
+		dest[len_dest + cnt] = src[cnt];
 		cnt++;
 	}
-	dest[cnt] = '\0';
-	return (len_src);
+	dest[len_dest + cnt] = '\0';
+	return (dest);
 }

@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hyojeong <hyojeong@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/08 08:51:29 by hyojeong          #+#    #+#             */
-/*   Updated: 2022/02/09 11:18:51 by hyojeong         ###   ########.fr       */
+/*   Created: 2022/02/09 09:48:13 by hyojeong          #+#    #+#             */
+/*   Updated: 2022/02/10 09:17:26 by hyojeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
+int	ft_strncmp(char *s1, char *s2, unsigned int n)
 {
 	unsigned int	cnt;
-	int				len_src;
 
 	cnt = 0;
-	len_src = 0;
-	while (src[len_src])
-		len_src++;
-	if (size == 0)
-		return (len_src);
-	while (src[cnt] && cnt < size - 1)
+	if (n == 0)
+		return (0);
+	while (s1[cnt] && s2[cnt] && cnt < n)
 	{
-		dest[cnt] = src[cnt];
+		if (s1[cnt] != s2[cnt])
+			return (s1[cnt] - s2[cnt]);
 		cnt++;
 	}
-	dest[cnt] = '\0';
-	return (len_src);
+	if (s1[cnt] == s2[cnt])
+		return (0);
+	else
+		return (s1[cnt] - s2[cnt]);
 }

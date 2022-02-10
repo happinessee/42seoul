@@ -6,7 +6,7 @@
 /*   By: hyojeong <hyojeong@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 09:03:53 by hyojeong          #+#    #+#             */
-/*   Updated: 2022/02/08 16:10:58 by hyojeong         ###   ########.fr       */
+/*   Updated: 2022/02/09 09:23:40 by hyojeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,10 @@ void	hexa(char c)
 
 void	*ft_print_memory(void *addr, unsigned int size)
 {
-	int		cnt;
+	unsigned int		cnt;
+	unsigned long long	address;
 
+	address = *addr;
 	cnt = 0;
 	while (addr[cnt] && cnt < 16)
 	{
