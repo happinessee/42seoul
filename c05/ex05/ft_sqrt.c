@@ -6,13 +6,13 @@
 /*   By: hyojeong <hyojeong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 23:30:13 by hyojeong          #+#    #+#             */
-/*   Updated: 2022/02/12 00:28:04 by hyojeong         ###   ########.fr       */
+/*   Updated: 2022/02/12 07:37:20 by hyojeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_sqrt(int nb)
 {
-	int num;
+	int		num;
 
 	num = 1;
 	if (nb <= 0)
