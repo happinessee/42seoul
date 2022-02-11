@@ -37,6 +37,16 @@ int	check_base(char *base)
 		return (0);
 }
 
+int	change_minus(long long nb)
+{
+	if (nb < 0)
+	{
+		write(1, "-", 1);
+		nb *= -1;
+	}
+	return (nb);
+}
+
 void	ft_putnbr_base(int nbr, char *base)
 {
 	long long	nb;
@@ -51,11 +61,7 @@ void	ft_putnbr_base(int nbr, char *base)
 		return ;
 	while (base[len_base])
 		len_base++;
-	if (nb < 0)
-	{
-		write(1, "-", 1);
-		nb *= -1;
-	}
+	nb = change_minus(nb);
 	if (nb == 0)
 		room[index++] = base[nb % len_base];
 	while (nb > 0)

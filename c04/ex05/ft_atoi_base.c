@@ -46,7 +46,7 @@ int	check_base(char *base)
 		return (1);
 	while (base[cnt])
 	{
-		if (base[cnt] == '-' || base[cnt] == '+')
+		if (base[cnt] == '-' || base[cnt] == '+' || base[cnt] == 32)
 			return (1);
 		cnt2 = cnt + 1;
 		while (base[cnt2])
