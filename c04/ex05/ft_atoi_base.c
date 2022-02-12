@@ -6,7 +6,7 @@
 /*   By: hyojeong <hyojeong@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 19:26:23 by hyojeong          #+#    #+#             */
-/*   Updated: 2022/02/12 16:06:07 by hyojeong         ###   ########.fr       */
+/*   Updated: 2022/02/12 21:40:39 by hyojeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int	check_base(char *base)
 		return (1);
 	while (base[cnt])
 	{
-		if (base[cnt] == '-' || base[cnt] == '+' || base[cnt] == 32)
+		if (base[cnt] == '-' || base[cnt] == '+' || is_space(base[cnt]))
 			return (1);
 		cnt2 = cnt + 1;
 		while (base[cnt2])
