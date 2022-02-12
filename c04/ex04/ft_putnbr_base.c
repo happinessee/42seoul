@@ -6,7 +6,7 @@
 /*   By: hyojeong <hyojeong@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 15:35:57 by hyojeong          #+#    #+#             */
-/*   Updated: 2022/02/10 19:41:51 by hyojeong         ###   ########.fr       */
+/*   Updated: 2022/02/12 15:45:23 by hyojeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	check_base(char *base)
 		return (0);
 }
 
-int	change_minus(long long nb)
+long long	change_minus(long long nb)
 {
 	if (nb < 0)
 	{
