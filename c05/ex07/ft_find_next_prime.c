@@ -6,7 +6,7 @@
 /*   By: hyojeong <hyojeong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/12 01:09:06 by hyojeong          #+#    #+#             */
-/*   Updated: 2022/02/13 16:35:12 by hyojeong         ###   ########.fr       */
+/*   Updated: 2022/02/13 16:40:12 by hyojeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,25 +26,6 @@ int	ft_is_prime(int nb)
 		check++;
 	}
 	return (1);
-}
-
-int	ft_sqrt(int nb)
-{
-	int		num;
-
-	num = 1;
-	if (nb <= 0)
-		return (0);
-	while (num * num < nb)
-	{
-		if (num > 46341)
-			return (0);
-		num++;
-	}
-	if (num * num == nb)
-		return (num);
-	else
-		return (0);
 }
 
 int	ft_find_next_prime(int nb)
