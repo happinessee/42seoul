@@ -6,7 +6,7 @@
 /*   By: hyojeong <hyojeong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/12 00:34:04 by hyojeong          #+#    #+#             */
-/*   Updated: 2022/02/12 01:08:34 by hyojeong         ###   ########.fr       */
+/*   Updated: 2022/02/13 16:34:39 by hyojeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,11 @@ int	ft_is_prime(int nb)
 	check = 2;
 	if (nb == 0 || nb == 1 || nb < 0)
 		return (0);
-	while (check != nb)
+	while (check * check < nb + 1)
 	{
 		if (nb % check == 0)
-			cnt++;
+			return (0);
 		check++;
 	}
-	if (cnt == 2)
-		return (1);
-	else
-		return (0);
+	return (1);
 }

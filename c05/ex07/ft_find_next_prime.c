@@ -6,11 +6,11 @@
 /*   By: hyojeong <hyojeong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/12 01:09:06 by hyojeong          #+#    #+#             */
-/*   Updated: 2022/02/12 07:42:21 by hyojeong         ###   ########.fr       */
+/*   Updated: 2022/02/13 16:35:12 by hyojeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	is_prime (int nb)
+int	ft_is_prime(int nb)
 {
 	int		check;
 	int		cnt;
@@ -19,29 +19,50 @@ int	is_prime (int nb)
 	check = 2;
 	if (nb == 0 || nb == 1 || nb < 0)
 		return (0);
-	while (check != nb)
+	while (check * check < nb + 1)
 	{
 		if (nb % check == 0)
-			cnt++;
+			return (0);
 		check++;
 	}
-	if (cnt == 2)
-		return (1);
+	return (1);
+}
+
+int	ft_sqrt(int nb)
+{
+	int		num;
+
+	num = 1;
+	if (nb <= 0)
+		return (0);
+	while (num * num < nb)
+	{
+		if (num > 46341)
+			return (0);
+		num++;
+	}
+	if (num * num == nb)
+		return (num);
 	else
 		return (0);
 }
 
 int	ft_find_next_prime(int nb)
 {
-	long long	next_prime;
+	int		prime;
 
-	next_prime = nb;
+	prime = nb;
+	if (prime <= 2)
+		return (2);
+	else if (prime == 3)
+		return (3);
 	while (1)
 	{
-		if (is_prime(next_prime))
-		{
-			return (next_prime);
-		}
-		next_prime++;
+		if (prime % 2 == 0 || prime % 3 == 0)
+			prime++;
+		else if (ft_is_prime(prime))
+			return (prime);
+		else
+			prime++;
 	}
 }
