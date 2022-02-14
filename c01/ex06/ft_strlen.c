@@ -1,11 +1,23 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hyojeong <hyojeong@student.42seoul.>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/07 08:37:30 by hyojeong          #+#    #+#             */
+/*   Updated: 2022/02/07 10:22:25 by hyojeong         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <unistd.h>
 
-int   ft_strlen(char *str)
+int	ft_strlen(char *str)
 {
-    int   cnt;
+	int		cnt;
 
-    cnt = 0;
-    while(str[cnt])
-        cnt++;
-    return (cnt);
+	cnt = 0;
+	while (str[cnt])
+		cnt++;
+	return (cnt);
 }

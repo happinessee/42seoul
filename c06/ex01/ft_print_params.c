@@ -1,29 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_program_name.c                            :+:      :+:    :+:   */
+/*   ft_print_params.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hyojeong <hyojeong@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/14 10:48:54 by hyojeong          #+#    #+#             */
-/*   Updated: 2022/02/14 11:19:59 by hyojeong         ###   ########.fr       */
+/*   Created: 2022/02/14 11:03:25 by hyojeong          #+#    #+#             */
+/*   Updated: 2022/02/14 14:43:37 by hyojeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-int	main(int argc, char **argv)
+void	ft_print(char *str)
 {
-	int		len_argv;
 	int		index;
 
-	(void)argc;
 	index = 0;
-	len_argv = 0;
-	while (argv[0][len_argv])
-		len_argv++;
-	while (index < len_argv)
-		write(1, &argv[0][index++], 1);
+	while (str[index])
+		write(1, &str[index++], 1);
 	write(1, "\n", 1);
+}
+
+int	main(int argc, char**argv)
+{
+	int		index;
+
+	index = 1;
+	if (argc > 1)
+	{
+		while (argv[index])
+		{
+			ft_print(argv[index]);
+			index++;
+		}
+	}
 	return (0);
 }

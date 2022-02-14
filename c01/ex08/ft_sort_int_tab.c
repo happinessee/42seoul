@@ -1,29 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_program_name.c                            :+:      :+:    :+:   */
+/*   ft_sort_int_tab.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hyojeong <hyojeong@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/14 10:48:54 by hyojeong          #+#    #+#             */
-/*   Updated: 2022/02/14 11:19:59 by hyojeong         ###   ########.fr       */
+/*   Created: 2022/02/07 10:13:17 by hyojeong          #+#    #+#             */
+/*   Updated: 2022/02/07 14:26:53 by hyojeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-int	main(int argc, char **argv)
+void	swap(int *a, int *b)
 {
-	int		len_argv;
-	int		index;
+	int		tmp;
 
-	(void)argc;
-	index = 0;
-	len_argv = 0;
-	while (argv[0][len_argv])
-		len_argv++;
-	while (index < len_argv)
-		write(1, &argv[0][index++], 1);
-	write(1, "\n", 1);
-	return (0);
+	tmp = *a;
+	*a = *b;
+	*b = tmp;
+}
+
+void	ft_sort_int_tab(int *tab, int size)
+{
+	int		cnt;
+	int		cnt2;
+
+	cnt = 0;
+	cnt2 = 0;
+	while (cnt < size)
+	{
+		while (cnt2 < size - 1)
+		{
+			if (tab[cnt2] > tab[cnt2 + 1])
+				swap(&tab[cnt2], &tab[cnt2 + 1]);
+			cnt2++;
+		}
+		cnt2 = 0;
+		cnt++;
+	}
 }

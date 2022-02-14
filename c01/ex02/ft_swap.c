@@ -6,7 +6,7 @@
 /*   By: hyojeong <hyojeong@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 21:53:32 by hyojeong          #+#    #+#             */
-/*   Updated: 2022/02/06 21:54:11 by hyojeong         ###   ########.fr       */
+/*   Updated: 2022/02/07 08:58:44 by hyojeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_swap(int *a, int *b)
 {
-	int tmp;
+	int		tmp;
 
 	tmp = *a;
 	*a = *b;
