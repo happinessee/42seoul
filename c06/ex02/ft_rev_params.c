@@ -6,7 +6,7 @@
 /*   By: hyojeong <hyojeong@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 14:41:07 by hyojeong          #+#    #+#             */
-/*   Updated: 2022/02/14 15:04:22 by hyojeong         ###   ########.fr       */
+/*   Updated: 2022/02/14 17:56:20 by hyojeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ int	main(int argc, char **argv)
 	int		index;
 
 	len = 1;
+	index = 1;
 	if (argc > 1)
 	{
 		while (argv[len])

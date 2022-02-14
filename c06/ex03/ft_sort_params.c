@@ -6,7 +6,7 @@
 /*   By: hyojeong <hyojeong@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 15:06:11 by hyojeong          #+#    #+#             */
-/*   Updated: 2022/02/14 17:45:37 by hyojeong         ###   ########.fr       */
+/*   Updated: 2022/02/14 18:03:22 by hyojeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ int	main(int argc, char **argv)
 					ft_swap(&argv[cnt2], &argv[cnt2 + 1]);
 				cnt2 ++;
 			}
-			cnt2 = 0;
+			cnt2 = 1;
 			cnt ++;
 		}
 		while (index < argc)
