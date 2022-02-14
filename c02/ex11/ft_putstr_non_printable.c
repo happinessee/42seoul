@@ -6,13 +6,13 @@
 /*   By: hyojeong <hyojeong@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 09:03:34 by hyojeong          #+#    #+#             */
-/*   Updated: 2022/02/09 11:41:23 by hyojeong         ###   ########.fr       */
+/*   Updated: 2022/02/14 15:39:44 by hyojeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	hexa(char word)
+void	hexa(unsigned char word)
 {
 	char	buf[3];
 	char	*hex;
@@ -33,11 +33,10 @@ void	ft_putstr_non_printable(char *str)
 	{
 		if ((str[cnt] >= 0 && str[cnt] <= 31) || str[cnt] == 127)
 			hexa(str[cnt]);
-		else
-		if (str[cnt] >= 32 && str[cnt] <= 126)
+		else if (str[cnt] >= 32 && str[cnt] <= 126)
 			write(1, &str[cnt], 1);
 		else
-			hexa(str[cnt]);
+			hexa((unsigned char)str[cnt]);
 		cnt++;
 	}
 }
