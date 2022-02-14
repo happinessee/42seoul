@@ -6,7 +6,7 @@
 /*   By: hyojeong <hyojeong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/12 01:13:42 by hyojeong          #+#    #+#             */
-/*   Updated: 2022/02/14 09:28:20 by hyojeong         ###   ########.fr       */
+/*   Updated: 2022/02/14 09:53:16 by hyojeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	print_board(int board[])
 	char	tmp;
 
 	index = 0;
-	while (board[index])
+	while (index < 10)
 	{
 		tmp = board[index] + 48;
 		write(1, &tmp, 1);
@@ -54,15 +54,14 @@ void	queen(int x, int *cnt, int board[])
 	{
 		*cnt = *cnt + 1;
 		print_board(board);
-		write(1, "i_find_it!", 9);
 		return ;
 	}
 	while (i < 10)
 	{
 		board[x] = i;
 		if (judge(x, board))
-			write(1, "next!", 5);
 			queen(x + 1, cnt, board);
+		i++;
 	}
 }
 
@@ -75,8 +74,7 @@ int	ft_ten_queens_puzzle(void)
 	cnt = 0;
 	index = 0;
 	while (index < 10)
-		board[index] = 0;
-	write(1, "go!", 3);
+		board[index++] = 0;
 	queen(0, &cnt, board);
 	return (cnt);
 }
