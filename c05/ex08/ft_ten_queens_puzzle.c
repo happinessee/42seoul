@@ -6,11 +6,13 @@
 /*   By: hyojeong <hyojeong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/12 01:13:42 by hyojeong          #+#    #+#             */
-/*   Updated: 2022/02/13 21:58:44 by hyojeong         ###   ########.fr       */
+/*   Updated: 2022/02/14 09:28:20 by hyojeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	judge(int x, char *board)
+#include <unistd.h>
+
+int	judge(int x, int board[])
 {
 	int		i;
 	int		tmp;
@@ -28,16 +30,53 @@ int	judge(int x, char *board)
 	return (1);
 }
 
-int	queen(int x, int *cnt)
+void	print_board(int board[])
 {
+	int		index;
+	char	tmp;
+
+	index = 0;
+	while (board[index])
+	{
+		tmp = board[index] + 48;
+		write(1, &tmp, 1);
+		index++;
+	}
+	write(1, "\n", 1);
+}
+
+void	queen(int x, int *cnt, int board[])
+{
+	int		i;
+
+	i = 0;
 	if (x == 10)
 	{
-
+		*cnt = *cnt + 1;
+		print_board(board);
+		write(1, "i_find_it!", 9);
+		return ;
+	}
+	while (i < 10)
+	{
+		board[x] = i;
+		if (judge(x, board))
+			write(1, "next!", 5);
+			queen(x + 1, cnt, board);
+	}
+}
 
 int	ft_ten_queens_puzzle(void)
 {
 	int		cnt;
+	int		index;
+	int		board[10];
 
 	cnt = 0;
-	return(0);
+	index = 0;
+	while (index < 10)
+		board[index] = 0;
+	write(1, "go!", 3);
+	queen(0, &cnt, board);
+	return (cnt);
 }
