@@ -6,36 +6,47 @@
 /*   By: hyojeong <hyojeong@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 09:03:53 by hyojeong          #+#    #+#             */
-/*   Updated: 2022/02/09 09:23:40 by hyojeong         ###   ########.fr       */
+/*   Updated: 2022/02/09 16:31:46 by hyojeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	hexa(char c)
+void	hexa(unsigned char word)
 {
-	char	word1;
-	char	word2;
+	char	buf[2];
+	char	*hex;
 
-	word1 = (word / 16) + '0';
-	word2 = word % 16;
-	if (word2 >= 10)
-		word2 = (word2 % 10) + 'a';
-	else
-		word2 = word2 + '0';
-	write(1, &word1, 1);
-	write(1, &word2, 1);
+	hex = "0123456789abcdef";
+	buf[0] = hex[word / 16];
+	buf[1] = hex[word % 16];
+	write(1, buf, 2);
 }
 
 void	*ft_print_memory(void *addr, unsigned int size)
 {
-	unsigned int		cnt;
-	unsigned long long	address;
+	int					cnt;
+	int					index;
+	unsigned long long	*address;
+	int					len_add;
 
-	address = *addr;
+	if (size == 0)
+		return (addr);
+	address = (unsigned long long *)addr;
 	cnt = 0;
-	while (addr[cnt] && cnt < 16)
-	{
+	while (address[cnt])
 		cnt++;
+	while (cnt / 16)
+	{
+		index = 0;
+		while (index < 16)
+		{
+			write(1, &address[index], 1);
+			index++;
+		}
+		write(1, ": ", 2);
+		hexa(address[cnt]);
+		cnt -= 16;
 	}
-}		
+	return (addr);
+}
