@@ -6,7 +6,7 @@
 /*   By: hyojeong <hyojeong@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 16:47:01 by hyojeong          #+#    #+#             */
-/*   Updated: 2022/02/15 21:55:12 by hyojeong         ###   ########.fr       */
+/*   Updated: 2022/02/16 08:56:39 by hyojeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,18 @@ int	get_len(char *str);
 int	change_str_int(char str, char *base);
 char	*chagne_int_str(int digit, char *base);
 
-int	x_to_y(int len, int nb)
+int	x_to_10(int len, char *nb)
 {
 	int		result;
+	int		index;
 
 	result = 0;
-	while (nb > 0)
+	index = 0;
+	while (nb[index])
 	{
 		result = result * len;
-		result = result + (nb % len);
+		result = result + nb[index] - 48;
+		index ++;
 	}
 	return (result);
 }
@@ -59,10 +62,11 @@ void	pass_init(char *nbr, int *index, int *minus)
 
 char	*ft_convert_base(char *nbr, char *base_from, char *base_to)
 {
-	int		*arr;
+	char	*arr;
 	int		index;
 	int		cnt;
 	int		minus;
+	int		result;
 
 	index = 0;
 	minus = 1;
@@ -74,6 +78,11 @@ char	*ft_convert_base(char *nbr, char *base_from, char *base_to)
 	pass_init(nbr, &index, &minus);
 	while (is_nbr(nbr[index]))
 	{
-		arr[cnt] = change_str_int(nbr[index], base_from);
-
+		arr[cnt++] = change_str_int(nbr[index], base_from) + 48;
+		index ++;
+	}
+	result = x_to_10(get_len(base_from), arr);
+	free(arr);
+	arr = change_int_str(result, base_to);
+	return (arr);
 }
