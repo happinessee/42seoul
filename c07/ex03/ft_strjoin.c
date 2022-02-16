@@ -6,7 +6,12 @@
 /*   By: hyojeong <hyojeong@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 15:44:21 by hyojeong          #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2022/02/16 17:34:02 by hyojeong         ###   ########.fr       */
+=======
+/*   Updated: 2022/02/16 17:41:56 by hyojeong         ###   ########.fr       */
+/*   Updated: 2022/02/16 14:15:45 by hyojeong         ###   ########.fr       */
+>>>>>>> eb7073321d88a02df0e5642c5dac97e6d816aa10
 /*   Updated: 2022/02/16 14:12:33 by hyojeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
@@ -35,7 +40,7 @@ int	get_all_len(int size, char **strs, char *sep)
 		len += get_len(strs[index]);
 		index ++;
 	}
-	return (len);
+	return (len + 1);
 }
 
 void	join(char *arr, char **strs, char *sep, int size)
@@ -46,7 +51,7 @@ void	join(char *arr, char **strs, char *sep, int size)
 
 	index = 0;
 	index3 = 0;
-	while (strs[index])
+	while (strs[index] && index < size)
 	{
 		index2 = 0;
 		while (strs[index][index2] && index < size)
@@ -69,7 +74,12 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 	len = get_all_len(size, strs, sep);
 	if (size <= 0)
 		return (0);
+<<<<<<< HEAD
 	if (!(arr = (char *)malloc(len + 1)))
+=======
+	arr = (char *)malloc(len);
+	if (arr == NULL)
+>>>>>>> eb7073321d88a02df0e5642c5dac97e6d816aa10
 		return (0);
 	join(arr, strs, sep, size);
 	return (arr);
