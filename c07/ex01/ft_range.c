@@ -6,7 +6,7 @@
 /*   By: hyojeong <hyojeong@student.42seoul.kr      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 13:17:41 by hyojeong          #+#    #+#             */
-/*   Updated: 2022/02/16 09:59:48 by hyojeong         ###   ########.fr       */
+/*   Updated: 2022/02/16 17:38:51 by hyojeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ int	*ft_range(int min, int max)
 	arr = 0;
 	if (min >= max)
 		return (arr);
-	if (!(arr = (int *)malloc((max - min) * sizeof(int))))
+	arr = (int *)malloc((max - min) * sizeof(int));
+	if (arr == NULL)
 		return (0);
 	while (min < max)
 	{
