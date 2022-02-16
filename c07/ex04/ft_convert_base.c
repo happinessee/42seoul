@@ -6,16 +6,16 @@
 /*   By: hyojeong <hyojeong@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 16:47:01 by hyojeong          #+#    #+#             */
-/*   Updated: 2022/02/16 09:25:04 by hyojeong         ###   ########.fr       */
+/*   Updated: 2022/02/16 21:34:47 by hyojeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-int	check_base(char *base);
-int	is_space(char word);
-int	get_len(char *str);
-int	change_str_int(char str, char *base);
+int		check_base(char *base);
+int		is_space(char word);
+int		get_len(char *str);
+int		change_str_int(char str, char *base);
 char	*change_int_str(int digit, char *base);
 
 int	x_to_10(int len, char *nb)

@@ -6,7 +6,7 @@
 /*   By: hyojeong <hyojeong@student.42seoul.kr      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 14:44:35 by hyojeong          #+#    #+#             */
-/*   Updated: 2022/02/16 19:57:42 by hyojeong         ###   ########.fr       */
+/*   Updated: 2022/02/17 00:09:29 by hyojeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,15 +26,10 @@ int	ft_ultimate_range(int **range, int min, int max)
 		return (0);
 	}
 	arr = (int *)malloc((max - min) * sizeof(int));
-	if (arr == NULL)
+	if (!arr)
 		return (-1);
 	while (min_index < max)
 		arr[index++] = min_index++;
-	index = 0;
-	while (arr[index])
-	{
-		range[index] = &arr[index];
-		index ++;
-	}
+	*range = arr;
 	return (max - min);
 }
