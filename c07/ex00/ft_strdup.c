@@ -6,7 +6,7 @@
 /*   By: hyojeong <hyojeong@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 10:09:47 by hyojeong          #+#    #+#             */
-/*   Updated: 2022/02/15 15:23:50 by hyojeong         ###   ########.fr       */
+/*   Updated: 2022/02/16 09:50:33 by hyojeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,20 @@ char	*ft_strdup(char *src)
 {
 	int		len;
 	char	*temp;
+	int		index;
 
+	index = 0;
 	len = 0;
+	temp = 0;
 	while (src[len])
 		len ++;
-	temp = (char *)malloc(len * sizeof(char));
-	if (temp == 0)
-		return (temp);
-	temp = src;
+	if (!(temp = (char *)malloc((len + 1) * sizeof(char))))
+		return (0);
+	while (src[index])
+	{
+		temp[index] = src[index];
+		index ++;
+	}
+	temp[index] = '\0';
 	return (temp);
 }

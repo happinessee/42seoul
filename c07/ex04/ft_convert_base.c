@@ -6,7 +6,7 @@
 /*   By: hyojeong <hyojeong@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 16:47:01 by hyojeong          #+#    #+#             */
-/*   Updated: 2022/02/16 08:56:39 by hyojeong         ###   ########.fr       */
+/*   Updated: 2022/02/16 09:25:04 by hyojeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	check_base(char *base);
 int	is_space(char word);
 int	get_len(char *str);
 int	change_str_int(char str, char *base);
-char	*chagne_int_str(int digit, char *base);
+char	*change_int_str(int digit, char *base);
 
 int	x_to_10(int len, char *nb)
 {
@@ -76,7 +76,7 @@ char	*ft_convert_base(char *nbr, char *base_from, char *base_to)
 		return (arr);
 	arr = (char *)malloc(32 * sizeof(char));
 	pass_init(nbr, &index, &minus);
-	while (is_nbr(nbr[index]))
+	while (is_nbr(nbr[index], base_from))
 	{
 		arr[cnt++] = change_str_int(nbr[index], base_from) + 48;
 		index ++;
