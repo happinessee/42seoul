@@ -6,12 +6,9 @@
 /*   By: hyojeong <hyojeong@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 15:44:21 by hyojeong          #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2022/02/16 17:39:32 by hyojeong         ###   ########.fr       */
-=======
+/*   Updated: 2022/02/16 17:41:56 by hyojeong         ###   ########.fr       */
 /*   Updated: 2022/02/16 14:15:45 by hyojeong         ###   ########.fr       */
 /*   Updated: 2022/02/16 14:12:33 by hyojeong         ###   ########.fr       */
->>>>>>> 6b62fbd059020830f9ebd550420f5c6c7c5dbeeb
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,13 +51,6 @@ void	join(char *arr, char **strs, char *sep, int size)
 	{
 		index2 = 0;
 		while (strs[index][index2] && index < size)
-<<<<<<< HEAD
-=======
-			arr[index3++] = strs[index][index2++];
-		index2 = 0;
-		while (sep[index2] && index + 1 < size )
-		while (strs[index][index2] && index	 < size)
->>>>>>> 6b62fbd059020830f9ebd550420f5c6c7c5dbeeb
 			arr[index3++] = strs[index][index2++];
 		index2 = 0;
 		while (sep[index2] && index + 1 < size)
