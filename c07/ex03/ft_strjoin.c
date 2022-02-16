@@ -6,7 +6,7 @@
 /*   By: hyojeong <hyojeong@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 15:44:21 by hyojeong          #+#    #+#             */
-/*   Updated: 2022/02/15 16:44:41 by hyojeong         ###   ########.fr       */
+/*   Updated: 2022/02/16 14:14:50 by hyojeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,12 +49,12 @@ void	join(char *arr, char **strs, char *sep, int size)
 	while (strs[index])
 	{
 		index2 = 0;
-		while (strs[index][index2])
+		while (strs[index][index2] && index < size)
 			arr[index3++] = strs[index][index2++];
-		index ++;
 		index2 = 0;
-		while (sep[index2] && size-- > 1)
+		while (sep[index2] && index + 1 < size )
 			arr[index3++] = sep[index2++];
+		index ++;
 	}
 }
 
