@@ -6,7 +6,7 @@
 /*   By: hyojeong <hyojeong@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 13:25:33 by hyojeong          #+#    #+#             */
-/*   Updated: 2022/02/17 14:36:36 by hyojeong         ###   ########.fr       */
+/*   Updated: 2022/02/17 15:59:35 by hyojeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,35 +46,41 @@ int	is_charset(char *str, char *charset, int index)
 		return (0);
 }
 
+void	ft_malloc(char **str)
+{
+	int		index;
 
+	index = 0;
+	while (index < 1000)
+		str[index++] = (char *)malloc(1000);
+}
 
 char	**ft_split(char *str, char *charset)
 {
 	char	**split_str;
-	char	*arr;
-	int		index;
+	int		index1;
 	int		index2;
 	int		index3;
 
-	split_str = (char **)malloc(1000);
-	arr = (char *)malloc(100);
-	index = 0;
+	index1 = 0;
 	index2 = 0;
 	index3 = 0;
-	while (str[index2])
+	split_str = (char **)malloc(1000);
+	ft_malloc(split_str);
+	while (str[index1])
 	{
-		if (is_charset(str, charset, index2))
+		if (is_charset(str, charset, index1))
 		{
-			split_str[index++] = arr;
-			index2 += ft_strlen(charset);
+			split_str[index2][index3] = 0;
+			index2++;
 			index3 = 0;
+			index1 += ft_strlen(charset);
 		}
 		else
-			arr[index3++] = str[index2++];
+			split_str[index2][index3++] = str[index1++];
 	}
-	if (index == 0)
-		split_str[index++] = arr;
-	split_str[index] = 0;
+	split_str[index2][index3] = 0;
+	split_str[index2 + 1] = 0;
 	return (split_str);
 }
 
@@ -86,14 +92,14 @@ int	main(void)
 		str_arr = ft_split("Hello World Cat\tDog\nPizza School"," \n");
 		for(i=0;str_arr[i] != 0; i++)
 			printf("%s\n",str_arr[i]);
-		for(i=0;str_arr[i] != 0; i++)
-			free(str_arr[i]);
-		free(str_arr);	
+		//for(i=0;str_arr[i] != 0; i++)
+		//	free(str_arr[i]);
+		//free(str_arr);	
 		str_arr = ft_split("Hello World Cat\tDog\nPizza School"," World");
 		for(i=0;str_arr[i] != 0; i++)
 			printf("%s\n",str_arr[i]);
-		for(i=0;str_arr[i] != 0; i++)
-			free(str_arr[i]);
-		free(str_arr);
+		//for(i=0;str_arr[i] != 0; i++)
+		//	free(str_arr[i]);
+		//free(str_arr);
 
 	}
