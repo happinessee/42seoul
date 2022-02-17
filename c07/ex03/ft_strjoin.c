@@ -6,7 +6,7 @@
 /*   By: hyojeong <hyojeong@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 15:44:21 by hyojeong          #+#    #+#             */
-/*   Updated: 2022/02/17 09:16:23 by hyojeong         ###   ########.fr       */
+/*   Updated: 2022/02/17 09:39:16 by hyojeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,11 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 	index = 0;
 	len = get_all_len(size, strs, sep);
 	if (size <= 0)
-		return (0);
+	{
+		arr = (char *)malloc(1);
+		arr = 0;
+		return (arr);
+	}
 	arr = join(strs, sep, size, len);
 	if (arr == NULL)
 		return (0);

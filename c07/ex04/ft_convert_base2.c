@@ -6,11 +6,12 @@
 /*   By: hyojeong <hyojeong@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 17:08:36 by hyojeong          #+#    #+#             */
-/*   Updated: 2022/02/16 09:05:37 by hyojeong         ###   ########.fr       */
+/*   Updated: 2022/02/17 10:00:40 by hyojeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
+int	is_space(char word);
 
 int	check_base(char *base)
 {
@@ -81,10 +82,11 @@ char	*change_int_str(int digit, char *base)
 
 	index = 0;
 	len_base = get_len(base);
-	arr = (char *)malloc(32 * sizeof(char));
+	arr = (char *)malloc(40 * sizeof(char));
 	if (digit == 0)
 	{
-		arr[index] = base[digit % len_base];
+		arr[index++] = base[digit % len_base];
+		arr[index] = 0;
 		return (arr);
 	}
 	while (digit > 0)
@@ -92,5 +94,6 @@ char	*change_int_str(int digit, char *base)
 		arr[index++] = base[digit % len_base];
 		digit = digit / len_base;
 	}
+	arr[index] = 0;
 	return (arr);
 }
