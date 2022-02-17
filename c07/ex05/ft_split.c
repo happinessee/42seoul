@@ -6,12 +6,11 @@
 /*   By: hyojeong <hyojeong@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 13:25:33 by hyojeong          #+#    #+#             */
-/*   Updated: 2022/02/17 15:59:35 by hyojeong         ###   ########.fr       */
+/*   Updated: 2022/02/17 16:01:16 by hyojeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include <stdio.h>
 
 int	ft_strlen(char *str)
 {
@@ -83,23 +82,3 @@ char	**ft_split(char *str, char *charset)
 	split_str[index2 + 1] = 0;
 	return (split_str);
 }
-
-int	main(void)
-	{
-		printf("----ex05----\n");
-		char **str_arr;
-		int i;
-		str_arr = ft_split("Hello World Cat\tDog\nPizza School"," \n");
-		for(i=0;str_arr[i] != 0; i++)
-			printf("%s\n",str_arr[i]);
-		//for(i=0;str_arr[i] != 0; i++)
-		//	free(str_arr[i]);
-		//free(str_arr);	
-		str_arr = ft_split("Hello World Cat\tDog\nPizza School"," World");
-		for(i=0;str_arr[i] != 0; i++)
-			printf("%s\n",str_arr[i]);
-		//for(i=0;str_arr[i] != 0; i++)
-		//	free(str_arr[i]);
-		//free(str_arr);
-
-	}

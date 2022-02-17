@@ -6,12 +6,11 @@
 /*   By: hyojeong <hyojeong@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 16:47:01 by hyojeong          #+#    #+#             */
-/*   Updated: 2022/02/17 13:21:35 by hyojeong         ###   ########.fr       */
+/*   Updated: 2022/02/17 16:02:01 by hyojeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include <stdio.h>
 
 int		check_base(char *base);
 int		is_space(char word);
