@@ -6,7 +6,7 @@
 /*   By: hyojeong <hyojeong@student.42seoul.kr      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 18:50:46 by hyojeong          #+#    #+#             */
-/*   Updated: 2022/02/19 08:19:15 by hyojeong         ###   ########.fr       */
+/*   Updated: 2022/02/19 08:33:59 by hyojeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,11 +86,11 @@ void	excute_split(char **arr, char *str, char *charset)
 char	**ft_split(char *str, char *charset)
 {
 	char	**arr;
-	int		words;
+	int		len;
 
-	words = count_words(str, charset);
-	arr = (char **)malloc(sizeof(char *) * (words + 1));
-	arr[words] = 0;
+	len = count_words(str, charset);
+	arr = (char **)malloc(sizeof(char *) * (len + 1));
 	excute_split(arr, str, charset);
+	arr[len] = 0;
 	return (arr);
 }
