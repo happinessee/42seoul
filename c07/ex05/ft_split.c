@@ -3,98 +3,94 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyojeong <hyojeong@student.42seoul.>       +#+  +:+       +#+        */
+/*   By: hyojeong <hyojeong@student.42seoul.kr      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/17 13:25:33 by hyojeong          #+#    #+#             */
-/*   Updated: 2022/02/18 09:05:38 by hyojeong         ###   ########.fr       */
+/*   Created: 2022/02/18 18:50:46 by hyojeong          #+#    #+#             */
+/*   Updated: 2022/02/19 08:19:15 by hyojeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include <stdio.h>
 
-char	*ft_strdup(char *src)
+int	is_charset(char c, char *charset)
 {
-	int		len;
-	char	*temp;
-	int		index;
-
-	index = 0;
-	len = 0;
-	temp = 0;
-	while (src[len])
-		len ++;
-	temp = (char *)malloc((len + 1) * sizeof(char));
-	if (temp == NULL)
-		return (0);
-	while (src[index])
-	{
-		temp[index] = src[index];
-		index ++;
-	}
-	temp[index] = '\0';
-	return (temp);
-}
-
-int	ft_strlen(char *str)
-{
-	int		cnt;
-
-	cnt = 0;
-	while (str[cnt])
-		cnt++;
-	return (cnt);
-}
-
-int	is_charset(char *str, char *charset, int *index)
-{
-	int		i;
-	int		cnt;
+	int	i;
 
 	i = 0;
-	cnt = 0;
-	while (charset[i])
+	while (charset[i] != '\0')
 	{
-		if (str[*index] == charset[i])
-		{
-			*index = *index + 1;
-			cnt++;
-			i = -1;
-		}
+		if (c == charset[i])
+			return (1);
 		i++;
 	}
-	if (cnt > 0)
+	if (c == '\0')
 		return (1);
-	else
-		return (0);
+	return (0);
+}
+
+int	count_words(char *str, char *charset)
+{
+	int	i;
+	int	words;
+
+	words = 0;
+	i = 0;
+	while (str[i] != '\0')
+	{
+		if (is_charset(str[i + 1], charset) == 1
+			&& is_charset(str[i], charset) == 0)
+			words++;
+		i++;
+	}
+	return (words);
+}
+
+void	copy_str(char *dest, char *src, char *charset)
+{
+	int	i;
+
+	i = 0;
+	while (is_charset(src[i], charset) == 0)
+	{
+		dest[i] = src[i];
+		i++;
+	}
+	dest[i] = '\0';
+}
+
+void	excute_split(char **arr, char *str, char *charset)
+{
+	int		i;
+	int		j;
+	int		word;
+
+	word = 0;
+	i = 0;
+	while (str[i] != '\0')
+	{
+		if (is_charset(str[i], charset) == 1)
+			i++;
+		else
+		{
+			j = 0;
+			while (is_charset(str[i + j], charset) == 0)
+				j++;
+			arr[word] = (char *)malloc(sizeof(char) * (j + 1));
+			copy_str(arr[word], str + i, charset);
+			i += j;
+			word++;
+		}
+	}
 }
 
 char	**ft_split(char *str, char *charset)
 {
-	char	**split_str;
-	char	*tmp;
-	int		index1;
-	int		index2;
-	int		index3;
+	char	**arr;
+	int		words;
 
-	index1 = 0;
-	index2 = 0;
-	index3 = 0;
-	split_str = (char **)malloc(1000);
-	tmp = (char *)malloc(1000);
-	while (str[index1])
-	{
-		if (is_charset(str, charset, &index1))
-		{
-			tmp[index2] = 0;
-			split_str[index3++] = ft_strdup(tmp);
-			index2 = 0;
-		}
-		else
-			tmp[index2++] = str[index1++];
-	}
-	tmp[index2] = 0;
-	split_str[index3++] = ft_strdup(tmp);
-	split_str[index3] = 0;
-	return (split_str);
+	words = count_words(str, charset);
+	arr = (char **)malloc(sizeof(char *) * (words + 1));
+	arr[words] = 0;
+	excute_split(arr, str, charset);
+	return (arr);
 }
