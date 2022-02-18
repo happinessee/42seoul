@@ -6,12 +6,11 @@
 /*   By: hyojeong <hyojeong@student.42seoul.kr      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 14:44:35 by hyojeong          #+#    #+#             */
-/*   Updated: 2022/02/17 13:48:52 by hyojeong         ###   ########.fr       */
+/*   Updated: 2022/02/17 16:01:40 by hyojeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include <stdio.h>
 
 int	ft_ultimate_range(int **range, int min, int max)
 {

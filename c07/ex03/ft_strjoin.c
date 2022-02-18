@@ -3,80 +3,69 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyojeong <hyojeong@student.42seoul.>       +#+  +:+       +#+        */
+/*   By: hyojeong <hyojeong@student.42seoul.kr      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/15 15:44:21 by hyojeong          #+#    #+#             */
-/*   Updated: 2022/02/17 09:39:16 by hyojeong         ###   ########.fr       */
+/*   Created: 2022/02/18 18:32:22 by hyojeong          #+#    #+#             */
+/*   Updated: 2022/02/18 19:42:15 by hyojeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-int	get_len(char *str)
-{
-	int		index;
-
-	index = 0;
-	while (str[index])
-		index++;
-	return (index);
-}
-
-int	get_all_len(int size, char **strs, char *sep)
+int	ft_strlen(char *str)
 {
 	int		len;
-	int		index;
 
-	index = 0;
-	len = get_len(sep) * (size - 1);
-	while (strs[index] && index < size)
-	{
-		len += get_len(strs[index]);
-		index ++;
-	}
-	return (len + 1);
+	len = 0;
+	while (str[len])
+		len++;
+	return (len);
 }
 
-char	*join(char **strs, char *sep, int size, int len)
+char	*ft_malloc(int size, char **strs, char *sep)
 {
-	int		index;
-	int		index2;
-	int		index3;
-	char	*tmp;
+	char	*str;
+	int		len;
+	int		i;
 
-	index = 0;
-	index3 = 0;
-	tmp = (char *)malloc(len);
-	while (strs[index] && index < size)
-	{
-		index2 = 0;
-		while (strs[index][index2] && index < size)
-			tmp[index3++] = strs[index][index2++];
-		index2 = 0;
-		while (sep[index2] && index + 1 < size)
-			tmp[index3++] = sep[index2++];
-		index ++;
-	}
-	tmp[index3] = 0;
-	return (tmp);
+	len = 0;
+	i = 0;
+	while (i < size)
+		len += ft_strlen(strs[i++]);
+	len += ft_strlen(sep) * (size - 1);
+	if (size <= 0)
+		len = 1;
+	str = (char *)malloc(sizeof(char) * len);
+	if (str == 0)
+		return (0);
+	return (str);
 }
 
 char	*ft_strjoin(int size, char **strs, char *sep)
 {
-	int		index;
-	char	*arr;
-	int		len;
+	int		i;
+	int		j;
+	int		k;
+	char	*str;
 
-	index = 0;
-	len = get_all_len(size, strs, sep);
-	if (size <= 0)
+	str = ft_malloc(size, strs, sep);
+	i = -1;
+	k = 0;
+	while (++i < size)
 	{
-		arr = (char *)malloc(1);
-		arr = 0;
-		return (arr);
+		j = 0;
+		while (strs[i][j])
+		{
+			str[k++] = strs[i][j];
+			j++;
+		}
+		j = 0;
+		while (sep[j] && i != size - 1)
+		{
+			str[k++] = sep[j];
+			j++;
+		}
 	}
-	arr = join(strs, sep, size, len);
-	if (arr == NULL)
-		return (0);
-	return (arr);
+	str[k] = '\0';
+	return (str);
 }
