@@ -6,11 +6,35 @@
 /*   By: hyojeong <hyojeong@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 13:25:33 by hyojeong          #+#    #+#             */
-/*   Updated: 2022/02/17 16:01:16 by hyojeong         ###   ########.fr       */
+/*   Updated: 2022/02/18 09:05:38 by hyojeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
+#include <stdio.h>
+
+char	*ft_strdup(char *src)
+{
+	int		len;
+	char	*temp;
+	int		index;
+
+	index = 0;
+	len = 0;
+	temp = 0;
+	while (src[len])
+		len ++;
+	temp = (char *)malloc((len + 1) * sizeof(char));
+	if (temp == NULL)
+		return (0);
+	while (src[index])
+	{
+		temp[index] = src[index];
+		index ++;
+	}
+	temp[index] = '\0';
+	return (temp);
+}
 
 int	ft_strlen(char *str)
 {
@@ -22,41 +46,33 @@ int	ft_strlen(char *str)
 	return (cnt);
 }
 
-int	is_charset(char *str, char *charset, int index)
+int	is_charset(char *str, char *charset, int *index)
 {
 	int		i;
-	int		j;
-	int		len;	
+	int		cnt;
 
-	len = ft_strlen(charset);
-	j = 0;
 	i = 0;
-	while (str[index + i] && i < len)
+	cnt = 0;
+	while (charset[i])
 	{
-		if (str[index + i] == charset[i])
-			j++;
-		else
-			return (0);
+		if (str[*index] == charset[i])
+		{
+			*index = *index + 1;
+			cnt++;
+			i = -1;
+		}
 		i++;
 	}
-	if (len == j)
+	if (cnt > 0)
 		return (1);
 	else
 		return (0);
 }
 
-void	ft_malloc(char **str)
-{
-	int		index;
-
-	index = 0;
-	while (index < 1000)
-		str[index++] = (char *)malloc(1000);
-}
-
 char	**ft_split(char *str, char *charset)
 {
 	char	**split_str;
+	char	*tmp;
 	int		index1;
 	int		index2;
 	int		index3;
@@ -65,20 +81,20 @@ char	**ft_split(char *str, char *charset)
 	index2 = 0;
 	index3 = 0;
 	split_str = (char **)malloc(1000);
-	ft_malloc(split_str);
+	tmp = (char *)malloc(1000);
 	while (str[index1])
 	{
-		if (is_charset(str, charset, index1))
+		if (is_charset(str, charset, &index1))
 		{
-			split_str[index2][index3] = 0;
-			index2++;
-			index3 = 0;
-			index1 += ft_strlen(charset);
+			tmp[index2] = 0;
+			split_str[index3++] = ft_strdup(tmp);
+			index2 = 0;
 		}
 		else
-			split_str[index2][index3++] = str[index1++];
+			tmp[index2++] = str[index1++];
 	}
-	split_str[index2][index3] = 0;
-	split_str[index2 + 1] = 0;
+	tmp[index2] = 0;
+	split_str[index3++] = ft_strdup(tmp);
+	split_str[index3] = 0;
 	return (split_str);
 }

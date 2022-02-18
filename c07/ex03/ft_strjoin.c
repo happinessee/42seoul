@@ -6,9 +6,11 @@
 /*   By: hyojeong <hyojeong@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 15:44:21 by hyojeong          #+#    #+#             */
-/*   Updated: 2022/02/17 09:39:16 by hyojeong         ###   ########.fr       */
+/*   Updated: 2022/02/18 00:33:18 by hyojeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <stdlib.h>
 
 #include <stdlib.h>
 
