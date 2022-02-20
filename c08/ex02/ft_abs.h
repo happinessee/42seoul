@@ -1,22 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft.h                                               :+:      :+:    :+:   */
+/*   ft_abs.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyojeong <hyojeong@student.42seoul.>       +#+  +:+       +#+        */
+/*   By: hyojeong <hyojeong@student.42seoul.kr      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/19 10:24:59 by hyojeong          #+#    #+#             */
-/*   Updated: 2022/02/19 16:21:18 by hyojeong         ###   ########.fr       */
+/*   Created: 2022/02/19 16:26:21 by hyojeong          #+#    #+#             */
+/*   Updated: 2022/02/19 16:40:23 by hyojeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_H
-# define FT_H
-
-void	ft_putchar(char c);
-void	ft_swap(int *a, int *b);
-void	ft_putstr(char *str);
-int		ft_strlen(char *str);
-int		ft_strcmp(char *s1, char *s2);
+#ifndef FT_ABS_H
+# define FT_ABS_H
+# define ABS(value) (value >= 0 ? value : -1 * value)
 
 #endif
