@@ -6,7 +6,7 @@
 /*   By: hyojeong <hyojeong@student.42seoul.kr      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 16:34:18 by hyojeong          #+#    #+#             */
-/*   Updated: 2022/02/21 16:36:04 by hyojeong         ###   ########.fr       */
+/*   Updated: 2022/02/21 21:05:14 by hyojeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,19 +38,18 @@ void	ft_advanced_sort_string_tab(char **tab, int(*cmp)(char *, char *))
 
 	argc = get_tabs(tab);
 	i = 0;
-	j = 0;
 	k = 0;
 	if (argc > 1)
 	{
 		while (i < argc)
 		{
+			j = 0;
 			while (j < argc - 1)
 			{
 				if (cmp(tab[j], tab[j + 1]) > 0)
 					ft_swap(&tab[j], &tab[j + 1]);
 				j++;
 			}
-			j = 0;
 			i++;
 		}
 	}
