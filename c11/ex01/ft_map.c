@@ -6,7 +6,7 @@
 /*   By: hyojeong <hyojeong@student.42seoul.kr      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 10:55:43 by hyojeong          #+#    #+#             */
-/*   Updated: 2022/02/21 11:00:53 by hyojeong         ###   ########.fr       */
+/*   Updated: 2022/02/21 20:30:25 by hyojeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	*ft_map(int *tab, int length, int(*f)(int))
 	arr = (int *)malloc(sizeof(int) * length);
 	while (i < length)
 	{
-		arr[i] = f(arr[i]);
+		arr[i] = f(tab[i]);
 		i++;
 	}
 	return (arr);

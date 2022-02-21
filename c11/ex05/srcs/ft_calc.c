@@ -1,23 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_foreach.c                                       :+:      :+:    :+:   */
+/*   ft_calc.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hyojeong <hyojeong@student.42seoul.kr      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/21 10:12:45 by hyojeong          #+#    #+#             */
-/*   Updated: 2022/02/21 20:57:38 by hyojeong         ###   ########.fr       */
+/*   Created: 2022/02/21 19:22:51 by hyojeong          #+#    #+#             */
+/*   Updated: 2022/02/21 19:26:47 by hyojeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_foreach(int *tab, int length, void(*f)(int))
+int	add(int x, int y)
 {
-	int		i;
+	return (x + y);
+}
 
-	i = 0;
-	while (i < length)
-	{
-		f(tab[i]);
-		i++;
-	}
+int	sub(int x, int y)
+{
+	return (x - y);
+}
+
+int	mul(int x, int y)
+{
+	return (x * y);
+}
+
+int	div(int x, int y)
+{
+	return (x / y);
+}
+
+int	mod(int x, int y)
+{
+	return (x % y);
 }

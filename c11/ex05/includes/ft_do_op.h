@@ -1,23 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_foreach.c                                       :+:      :+:    :+:   */
+/*   ft_do_op.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hyojeong <hyojeong@student.42seoul.kr      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/21 10:12:45 by hyojeong          #+#    #+#             */
-/*   Updated: 2022/02/21 20:57:38 by hyojeong         ###   ########.fr       */
+/*   Created: 2022/02/21 19:37:31 by hyojeong          #+#    #+#             */
+/*   Updated: 2022/02/21 20:06:49 by hyojeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_foreach(int *tab, int length, void(*f)(int))
-{
-	int		i;
+#ifndef FT_DO_OP_H
+# define FT_DO_OP_H
 
-	i = 0;
-	while (i < length)
-	{
-		f(tab[i]);
-		i++;
-	}
-}
+# include <unistd.h>
+int		is_space(char str);
+int		is_digit(char str);
+int		ft_atoi(char *str);
+int		add(int x, int y);
+int		sub(int x, int y);
+int		mul(int x, int y);
+int		div(int x, int y);
+int		mod(int x, int y);
+int		ft_strlen(char *str);
+void	ft_putstr(char *str);
+void	ft_putchar(char c);
+void	ft_putnbr(int nb);
+
+#endif

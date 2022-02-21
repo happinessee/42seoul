@@ -1,23 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_foreach.c                                       :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hyojeong <hyojeong@student.42seoul.kr      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/21 10:12:45 by hyojeong          #+#    #+#             */
-/*   Updated: 2022/02/21 20:57:38 by hyojeong         ###   ########.fr       */
+/*   Created: 2022/02/21 19:27:14 by hyojeong          #+#    #+#             */
+/*   Updated: 2022/02/21 20:10:48 by hyojeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_foreach(int *tab, int length, void(*f)(int))
-{
-	int		i;
+#include "ft_do_op.h"
 
-	i = 0;
-	while (i < length)
+int	main(int argc, char **argv)
+{
+	int		num1;
+	int		num2;
+	char	operator;
+	if (argc == 4)
 	{
-		f(tab[i]);
-		i++;
+		num1 = ft_atoi(argv[1]);
+		num2 = ft_atoi(argv[3]);
+		operator = argv[2][0];
 	}
+	write(1, "\n", 1);
+	return (0);
 }
