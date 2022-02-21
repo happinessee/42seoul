@@ -1,6 +1,6 @@
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
-TARGETS = libft.a
+NAME = libft.a
 
 SRC_DIR = srcs/
 INC_DIR = includes/
@@ -13,16 +13,16 @@ OBJECTS = $(SOURCES:.c=.o)
 %.o : %.c
 		$(CC) $(CFLAGS) -c $< -o $@ -I $(INC_DIR)
 
-$(TARGETS) : $(OBJECTS)
+$(NAME) : $(OBJECTS)
 		$(AR) rc $@ $^
 
 .PHONY: clean, fclean, re, all
-all : $(TARGETS)
+all : $(NAME)
 
 clean :
 		rm -f $(OBJECTS)
 
 fclean : clean
-		rm -f $(TARGETS)
+		rm -f $(NAME)
 
 re : fclean all
