@@ -6,7 +6,7 @@
 /*   By: hyojeong <hyojeong@student.42seoul.kr      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 18:50:46 by hyojeong          #+#    #+#             */
-/*   Updated: 2022/02/19 08:40:28 by hyojeong         ###   ########.fr       */
+/*   Updated: 2022/02/20 17:19:26 by hyojeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	count_words(char *str, char *charset)
 	int	i;
 	int	words;
 
-	words = 0;q
+	words = 0;
 	i = 0;
 	while (str[i] != '\0')
 	{
