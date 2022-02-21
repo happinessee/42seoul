@@ -23,6 +23,6 @@ clean :
 		rm -f $(OBJECTS)
 
 fclean : clean
-		rm -f $(TARGET)
+		rm -f $(TARGETS)
 
 re : fclean all
