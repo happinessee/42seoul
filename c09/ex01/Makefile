@@ -11,10 +11,10 @@ SOURCES = $(SRC_DIR)ft_putchar.c $(SRC_DIR)ft_swap.c $(SRC_DIR)ft_putstr.c $(SRC
 OBJECTS = $(SOURCES:.c=.o)
 
 %.o : %.c
-		$(CC) -c $(CFLAGS) $< -o $@ -I $(INC_DIR)
+		$(CC) $(CFLAGS) -c $< -o $@ -I $(INC_DIR)
 
 $(TARGETS) : $(OBJECTS)
-		$(CC) -c $(CFLAGS) -o $@ $^
+		$(AR) rc $@ $^
 
 .PHONY: clean, fclean, re, all
 all : $(TARGETS)
