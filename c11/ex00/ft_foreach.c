@@ -6,11 +6,11 @@
 /*   By: hyojeong <hyojeong@student.42seoul.kr      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 10:12:45 by hyojeong          #+#    #+#             */
-/*   Updated: 2022/02/21 20:57:38 by hyojeong         ###   ########.fr       */
+/*   Updated: 2022/02/22 10:08:09 by hyojeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_foreach(int *tab, int length, void(*f)(int))
+void	ft_foreach(int *tab, int length, void (*f)(int))
 {
 	int		i;
 

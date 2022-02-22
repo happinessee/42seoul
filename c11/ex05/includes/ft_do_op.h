@@ -6,7 +6,7 @@
 /*   By: hyojeong <hyojeong@student.42seoul.kr      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 19:37:31 by hyojeong          #+#    #+#             */
-/*   Updated: 2022/02/21 20:06:49 by hyojeong         ###   ########.fr       */
+/*   Updated: 2022/02/22 10:33:20 by hyojeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define FT_DO_OP_H
 
 # include <unistd.h>
+
 int		is_space(char str);
 int		is_digit(char str);
 int		ft_atoi(char *str);

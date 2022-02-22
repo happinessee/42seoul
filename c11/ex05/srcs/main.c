@@ -6,7 +6,7 @@
 /*   By: hyojeong <hyojeong@student.42seoul.kr      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 19:27:14 by hyojeong          #+#    #+#             */
-/*   Updated: 2022/02/22 09:06:49 by hyojeong         ###   ########.fr       */
+/*   Updated: 2022/02/22 10:39:56 by hyojeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@ int	main(int argc, char **argv)
 	int		num1;
 	int		num2;
 	char	operator;
-	int		result;
 
 	if (argc == 4)
 	{
@@ -51,17 +50,16 @@ int	main(int argc, char **argv)
 		num2 = ft_atoi(argv[3]);
 		operator = argv[2][0];
 		if (ft_strlen(argv[2]) != 1)
-			write(1, "0\n", 2);
+			ft_putstr("0\n");
 		else
 		{
-			result = calc(num1, num2, operator);
-			if (result == -1)
+			if (calc(num1, num2, operator) == -1)
 				ft_putstr("Stop : division by zero\n");
-			else if (result == -2)
+			else if (calc(num1, num2, operator) == -2)
 				ft_putstr("Stop : modulo by zero\n");
 			else
 			{
-				ft_putnbr(result);
+				ft_putnbr(calc(num1, num2, operator));
 				ft_putchar('\n');
 			}
 		}

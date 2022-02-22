@@ -6,13 +6,13 @@
 /*   By: hyojeong <hyojeong@student.42seoul.kr      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 10:55:43 by hyojeong          #+#    #+#             */
-/*   Updated: 2022/02/21 20:30:25 by hyojeong         ###   ########.fr       */
+/*   Updated: 2022/02/22 10:08:23 by hyojeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-int	*ft_map(int *tab, int length, int(*f)(int))
+int	*ft_map(int *tab, int length, int (*f)(int))
 {
 	int		*arr;
 	int		i;

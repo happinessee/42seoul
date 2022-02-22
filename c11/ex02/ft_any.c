@@ -6,11 +6,11 @@
 /*   By: hyojeong <hyojeong@student.42seoul.kr      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 11:01:31 by hyojeong          #+#    #+#             */
-/*   Updated: 2022/02/21 11:11:28 by hyojeong         ###   ########.fr       */
+/*   Updated: 2022/02/22 10:08:32 by hyojeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_any(char **tab, int(*f)(char*))
+int	ft_any(char **tab, int (*f)(char*))
 {
 	int		i;
 
