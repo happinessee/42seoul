@@ -6,7 +6,7 @@
 /*   By: hyojeong <hyojeong@student.42seoul.kr      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 19:11:48 by hyojeong          #+#    #+#             */
-/*   Updated: 2022/02/21 20:06:30 by hyojeong         ###   ########.fr       */
+/*   Updated: 2022/02/22 08:55:54 by hyojeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ void	ft_putstr(char *str)
 	while (str[index])
 		write(1, &str[index++], 1);
 }
-
 
 void	ft_putchar(char c)
 {
